@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Page</title>
+    <style>
+    h1{
+        background-color:black;
+        color:white;
+    }
+</style>
+</head>
+<body>
+    <%- include('common/header') %>
+<h1>Wellcome <%= user.username %> </h1>
+<h1>Gmail <%= user.gmail %> </h1>
+<h1>City <%= user.city %> </h1>
+<h1> 
+    <ul style="text-align: left; background-color: black; color: white;">
+    SKILLS:<br><% user.skills.forEach((item)=>{ %>
+        <li><%= item %></li>
+    <% }) %>
+</ul>
+</h1>
+<%- include('common/footer') %>
+</body>
+</html>
