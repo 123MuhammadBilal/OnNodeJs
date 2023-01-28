@@ -1,0 +1,1 @@
+this is fs.writFileSync __ cammandControl.txt
