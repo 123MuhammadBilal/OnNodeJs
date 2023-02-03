@@ -42,7 +42,7 @@ const app = express();
 const publicPath = path.join(__dirname,"public")
 app.set('view engine','ejs');
 // static use of website
-// app.use(express.static(publicPath))
+app.use(express.static(publicPath))
 
 app.get('',(_,resp)=>{
     resp.sendFile(`${publicPath}/index.html`)
@@ -56,6 +56,7 @@ app.get('/profile',(_,resp)=>{
     };
     resp.render('profile',{user})
 });
+
 app.get('/login',(_,resp)=>{
     resp.render('login')
 });

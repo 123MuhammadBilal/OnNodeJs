@@ -1,0 +1,5 @@
+For creating a server
+const http = require("http");
+http.createServer((req,resp)=>{
+
+}).listen(port)
