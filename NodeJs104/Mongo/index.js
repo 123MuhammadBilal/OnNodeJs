@@ -1,12 +1,30 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose')
+const url = 'mongodb://127.0.0.1:27017/'
+process.setMaxListeners(20);
+const dataBase = "testDB"
+const client = new MongoClient(url)
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("e-comm");
-  dbo.createCollection("products", function(err, res) {
-    if (err) throw err;
-    console.log("Collection created!");
-    db.close();
-  });
-});
+async function dbConnect(){
+  let result = await client.connect();
+  let db = result.db(dataBase)
+  return db.collection('users')
+  // let response = await collection.find({}).toArray();
+  // console.log(response);
+}
+
+// connection with database
+// dbConnect().then((resp)=>{
+//   resp.find().toArray().then((data)=>{
+//     console.log(data)
+//   })
+// })
+
+// console.log(dbConnect())
+
+const main = async ()=>{
+  let data = await dbConnect();
+  data =await data.find().toArray();
+  console.warn();(data);
+}
+main()
