@@ -57,19 +57,33 @@ app.get('/profile',(_,resp)=>{
     resp.render('profile',{user})
 });
 
+app.get('/about',(_,resp)=>{
+    resp.render('about')
+});
+app.get('/help',(_,resp)=>{
+    resp.render('help')
+});
+app.get('/home',(_,resp)=>{
+    resp.render('home')
+});
 app.get('/login',(_,resp)=>{
     resp.render('login')
 });
-
-app.get('/aboutUs',(_,resp)=>{
-    resp.sendFile(`${publicPath}/about.html`)
+app.get('/profile',(_,resp)=>{
+    resp.render('profile')
 });
-
-app.get('/getHelp',(_,resp)=>{
-    resp.sendFile(`${publicPath}/help.html`)
+app.get('/Contact',(_,resp)=>{
+    resp.render('contact')
 });
+// app.get('/aboutUs',(_,resp)=>{
+//     resp.sendFile(`${publicPath}/about.html`)
+// });
+
+// app.get('/getHelp',(_,resp)=>{
+//     resp.sendFile(`${publicPath}/help.html`)
+// });
 app.get('*',(_,resp)=>{
     resp.sendFile(`${publicPath}/404.html`)
 });
 
-app.listen(5500);
+app.listen(3330);
