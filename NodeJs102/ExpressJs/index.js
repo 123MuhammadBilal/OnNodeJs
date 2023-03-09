@@ -44,8 +44,8 @@ app.set('view engine','ejs');
 // static use of website
 app.use(express.static(publicPath))
 
-app.get('',(_,resp)=>{
-    resp.sendFile(`${publicPath}/index.html`)
+app.get('/home',(_,resp)=>{
+    resp.render('home')
 });
 app.get('/profile',(_,resp)=>{
     const user={
