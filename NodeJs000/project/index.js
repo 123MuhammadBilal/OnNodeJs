@@ -6,7 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const dName = "alwahabmobiles";
 const uri = `mongodb://127.0.0.1:27017/${dName}`;
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // some important 
 // APIs
